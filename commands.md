@@ -113,6 +113,7 @@ cat vendor/vendor.json
 ```
 
 # Refactor to MSA
+
 ## Shell 1 - build and run the hello service
 ```bash
 go build -o ./bin/hello ./hello
@@ -129,4 +130,42 @@ sudo ./bin/auth -http :10090 -health :10091
 ```bash
 TOKEN=$(curl 127.0.0.1:10090/login -u user | jq -r '.token')
 curl -H "Authorization:  Bearer $TOKEN" http://127.0.0.1:10082/secure
+```
+
+# Installing apps with native OS tools
+
+## Cloud shell - set compute/zone
+**Note** - Google Cloud shell is an ephemeral instance and will reset if you don't use it for more than 30 minutes. That is why you might have to set some configuration values again
+```bash
+gcloud compute zones list
+gcloud config set compute/zone <zone>
+```
+
+## Cloud shell - launch a new VM instance
+```bash
+gcloud compute instances create ubuntu \
+--image-project ubuntu-os-cloud \
+--image ubuntu-1604-xenial-v20160420c
+```
+
+## Cloud shell - log into the VM instance
+```bash
+gcloud compute ssh ubuntu
+```
+
+## VM instance - update packages and install nginx
+```bash
+sudo apt-get update
+sudo apt-get install nginx
+nginx -v
+```
+
+## VM instance - start nginx
+```bash
+sudo systemctl start nginx
+```
+Check that it's running
+```bash
+sudo systemctl status nginx
+curl http://127.0.0.1
 ```
