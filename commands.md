@@ -169,3 +169,28 @@ Check that it's running
 sudo systemctl status nginx
 curl http://127.0.0.1
 ```
+
+# Problem! How to install two versions
+
+## VM instance
+Install nginx again
+```bash
+sudo apt-get install nginx
+```
+
+Start nginx again and check nginx status
+```bash
+sudo systemctl start nginx
+sudo systemctl status nginx
+sudo ps aux | grep nginx
+```
+
+Check nginx config file
+```bash
+cat /etc/init/nginx.conf
+```
+
+Stop nginx
+```bash
+sudo systemctl stop nginx
+```
