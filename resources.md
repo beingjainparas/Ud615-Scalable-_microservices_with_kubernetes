@@ -15,7 +15,7 @@ Below we have compiled a list of some of our favorites.
 
 * **Articles**
   * Martin Fowler on the [Pros](http://martinfowler.com/articles/microservices.html) and [Cons](http://martinfowler.com/articles/microservice-trade-offs.html) of Microservices
-  * [12-Fractured Apps](https://medium.com/@kelseyhightower/12-fractured-apps-1080c73d481c) - One of Carters favorites articles where Kelsey breaks down problems with many modern apps and how 12-factor app methodology solves those technical woes.
+  * [12-Fractured Apps](https://medium.com/@kelseyhightower/12-fractured-apps-1080c73d481c) - One of Carters favorites articles where Kelsey breaks down problems with many modern apps and how 12-factor app methodology solves those technical woes, Find out more about the 12-factor manifesto here: http://12factor.net/
   * Tim O’Reilly, ["Open Data: Small Pieces Loosely Joined"](http://radar.oreilly.com/2006/09/open-data-small-pieces-loosely.html) For the history nerds: Quite possibly the first article about Microservices Architecture (before it even had a name).
 
 * **Videos**
