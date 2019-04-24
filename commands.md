@@ -379,3 +379,31 @@ curl $CIP
 
 ## Important note on security
 If you are tired of typing "sudo" in front of all Docker commands, and confused why a lot of examples don't have that, please read the following article about implications on security - [Why we don't let non-root users run Docker in CentOS, Fedora, or RHEL](http://www.projectatomic.io/blog/2015/08/why-we-dont-let-non-root-users-run-docker-in-centos-fedora-or-rhel/)
+
+# Create the Other Containers
+
+## Create docker images for the remaining microservices - auth and hello.
+Repeat the steps you took for monolith.
+
+## Build the auth app
+```bash
+cd $GOPATH/src/github.com/udacity/ud615/app
+cd auth
+go build --tags netgo --ldflags '-extldflags "-lm -lstdc++ -static"'
+sudo docker build -t auth:1.0.0 .
+CID2=$(sudo docker run -d auth:1.0.0)
+```
+
+## Build the hello app
+```bash
+cd $GOPATH/src/github.com/udacity/ud615/app
+cd hello
+go build --tags netgo --ldflags '-extldflags "-lm -lstdc++ -static"'
+sudo docker build -t hello:1.0.0 .
+CID3=$(sudo docker run -d hello:1.0.0)
+```
+
+## See the running containers
+```bash
+sudo docker ps -a
+```
