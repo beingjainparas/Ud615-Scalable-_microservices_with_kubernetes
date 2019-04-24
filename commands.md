@@ -1,4 +1,6 @@
-# Setup GCE and Enable Cloud Shell
+# Get the Source Code
+
+## Setup GCE and Enable Cloud Shell
 In this section you will create a Google Compute Engine (GCE) account. GCE will allow you to the create VMs, Networks, and Storage volumes required for this workshop. GCE also provides the [Cloud Shell](https://cloud.google.com/shell/docs) computing environment that will be used complete the labs.
 
 ## Create a GCE Account
@@ -55,4 +57,57 @@ git clone https://github.com/udacity/ud615
 Get ready for the next lesson
 ```bash
 cd ud615/app
+```
+
+# Build and Interact with Monolith
+
+## On shell 1 - build the app:
+Make sure you are in the app directory and build the app:
+```bash
+cd $GOPATH/src/github.com/udacity/ud615/app
+mkdir bin
+go build -o ./bin/monolith ./monolith
+```
+Optional - if you run into errors building your go binaries, you probably need to install the dependencies first by running:
+```bash
+$ go get -u
+```
+
+## On shell 1 - run the monolith server:
+```bash
+sudo ./bin/monolith -http :10080
+```
+
+## On shell 2 - test the app:
+```bash
+curl http://127.0.0.1:10080
+curl http://127.0.0.1:10080/secure
+```
+
+## On shell 2 - authenticate (password is password):
+```bash
+curl http://127.0.0.1:10080/login -u user
+```
+It prints out the token.
+
+You can copy and paste the long token in to the next command manually, but copying long, wrapped lines in cloud shell is broken. To work around this, you can either copy the JWT token in pieces, or - more easily - by assigning the token to a shell variable as follows
+
+## On shell 2 - login and assign the value of the JWT to a variable
+```bash
+TOKEN=$(curl http://127.0.0.1:10080/login -u user | jq -r '.token')
+```
+Check that it worked:
+```bash
+echo $TOKEN
+```
+
+## On shell 2 - access the secure endpoint using the JWT:
+```bash
+curl -H "Authorization: Bearer $TOKEN" http://127.0.0.1:10080/secure
+```
+
+## On shell 2 - check out dependencies
+```bash
+ls vendor 
+cat vendor/vendor.json
 ```
