@@ -194,3 +194,32 @@ Stop nginx
 ```bash
 sudo systemctl stop nginx
 ```
+
+# Installing Images with Docker
+
+## Install Docker
+```bash
+sudo apt-get install docker.io
+```
+
+## Check Docker images
+```bash
+sudo docker images
+```
+
+## Pull nginx image
+```bash
+sudo docker pull nginx:1.10.0
+sudo docker images
+```
+
+## Verify the versions match
+```bash
+sudo dpkg -l | grep nginx
+```
+
+If your version of nginx from native package and Docker are different, you need to update the VM instance:
+```
+sudo apt-get update
+sudo apt-get install nginx
+```
