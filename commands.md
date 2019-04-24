@@ -314,3 +314,68 @@ or
 ```bash
 sudo docker rm $(sudo docker ps -aq)
 ```
+
+# Create An Image
+
+## Install Go
+```bash
+wget https://storage.googleapis.com/golang/go1.6.2.linux-amd64.tar.gz
+rm -rf /usr/local/bin/go
+sudo tar -C /usr/local -xzf go1.6.2.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=~/go
+```
+
+## Get the app code
+```bash
+mkdir -p $GOPATH/src/github.com/udacity
+cd $GOPATH/src/github.com/udacity
+git clone https://github.com/udacity/ud615.git
+```
+
+## Build a static binary of the monolith app
+```bash
+cd ud615/app/monolith
+go get -u
+go build --tags netgo --ldflags '-extldflags "-lm -lstdc++ -static"'
+```
+
+## Why did you have to build the binary with such an ugly command line?
+You have to explicitly make the binary static. This is really important in the Docker community right now because alpine has a different implementation of libc. So your go binary wouldn't have had the lib it needed if it wasn't static. You created a static binary so that your application could be self-contained.
+
+## Create a container for the app
+Look at the Dockerfile
+```bash
+cat Dockerfile
+```
+Build the app container
+```bash
+sudo docker build -t monolith:1.0.0 .
+```
+List the monolith image
+```bash
+sudo docker images monolith:1.0.0
+```
+
+## Run the monolith container and get it's IP
+```bash
+sudo docker run -d monolith:1.0.0
+sudo docker inspect <container name or cid>
+```
+or
+```bash
+CID=$(sudo docker run -d monolith:1.0.0)
+CIP=$(sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' ${CID})
+```
+
+## Test the container
+```bash
+curl <the container IP>
+```
+or
+```bash
+curl $CIP
+```
+
+## Important note on security
+If you are tired of typing "sudo" in front of all Docker commands, and confused why a lot of examples don't have that, please read the following article about implications on security - [Why we don't let non-root users run Docker in CentOS, Fedora, or RHEL](http://www.projectatomic.io/blog/2015/08/why-we-dont-let-non-root-users-run-docker-in-centos-fedora-or-rhel/)
