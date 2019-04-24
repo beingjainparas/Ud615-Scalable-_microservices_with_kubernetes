@@ -256,3 +256,61 @@ sudo ps aux | grep nginx
 If you don't specify a name, Docker gives a container a random name, such as "stoic_williams," "sharp_bartik," "awesome_murdock," or "evil_hawking." (Stephen Hawking got no love on this one.)
 
 These are generated from a list of adjectives and names of famous scientists and hackers. The combination of the names and adjectives is random, except for one case. Want to see what the exception is? Check it out in the [Docker source code](https://github.com/docker/docker/blob/master/pkg/namesgenerator/names-generator.go)!
+
+
+# Talking to Docker instances
+
+## List all running container processes
+```bash
+sudo docker ps
+```
+For use in shell scripts you might want to just get a list of container IDs (-a stands for all instances, not just running, and -q is for "quiet" - show just the numeric ID):
+```bash
+sudo docker ps -aq
+```
+
+## Inspect the container
+You can use either CONTAINER ID or NAMES field, for example for a sudo docker ps output like this:
+
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+f86cf066c304        nginx:1.10.0        "nginx -g 'daemon off"   8 minutes ago       Up 8 minutes        80/tcp, 443/tcp     sharp_bartik
+You can use either of the following commands:
+```bash
+sudo docker inspect f86cf066c304
+```
+or
+```bash
+sudo docker inspect sharp_bartik
+```
+
+## Connect to the nginx using the internal IP
+Get the internal IP address either copying from the full inspect file or by assigning it to a shell variable:
+```bash
+CN="sharp_bartik"
+CIP=$(sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' $CN)
+curl  http://$CIP
+```
+You can also get all instance IDs and their corresponding IP addresses by doing this:
+```bash
+sudo docker inspect -f '{{.Name}} - {{.NetworkSettings.IPAddress }}' $(sudo docker ps -aq)
+```
+
+## Stop an instance
+```bash
+sudo docker stop <cid>
+or sudo docker stop $(sudo docker ps -aq)
+```
+
+## Verify no more instances running
+```bash
+sudo docker ps
+```
+
+## Remove the docker containers from the system
+```bash
+sudo docker rm <cid>
+```
+or 
+```bash
+sudo docker rm $(sudo docker ps -aq)
+```
