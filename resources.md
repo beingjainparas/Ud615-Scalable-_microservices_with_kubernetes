@@ -41,6 +41,9 @@ Below we have compiled a list of some of our favorites.
   * Here are two articles with a good write-ups about containers, if you want to go more in-depth about container technology:
     * [Containers bring a skinny new world of virtualization to Linux](http://www.itworld.com/article/2698646/virtualization/containers-bring-a-skinny-new-world-of-virtualization-to-linux.html)
     * [What are containers and why do you need them?](http://www.cio.com/article/2924995/enterprise-software/what-are-containers-and-why-do-you-need-them.html)
+  * Find out more here: [Alpine container image on DockerHub](https://hub.docker.com/_/alpine/)
+  * Article - [Docker gets minimalist with plan to migrate images to Alpine Linux](http://siliconangle.com/blog/2016/02/09/docker-gets-minimalist-with-plan-to-migrate-images-to-alpine-linux/)
+  * Comment on HackerNews by [Solomon Hykes, founder and CTO of Docker (on the move)](https://news.ycombinator.com/item?id=11000827)
   
 * **Kubernetes**
   * Once we have an application, we use Kubernetes to handle the heavy lifting of managing, deploying, and scaling our application.
