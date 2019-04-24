@@ -219,7 +219,40 @@ sudo dpkg -l | grep nginx
 ```
 
 If your version of nginx from native package and Docker are different, you need to update the VM instance:
-```
+```bash
 sudo apt-get update
 sudo apt-get install nginx
 ```
+
+# Running Images with Docker
+
+## Run the first instance
+```bash
+sudo docker run -d nginx:1.10.0
+```
+
+## Check if it's up
+```bash
+sudo docker ps
+```
+
+## Run a different version of nginx
+```bash
+sudo docker run -d nginx:1.9.3
+```
+
+## Run another version of nginx
+```bash
+sudo docker run -d nginx:1.10.0
+```
+
+## Check how many instances are running
+```bash
+sudo docker ps
+sudo ps aux | grep nginx
+```
+
+## What's with the container names?
+If you don't specify a name, Docker gives a container a random name, such as "stoic_williams," "sharp_bartik," "awesome_murdock," or "evil_hawking." (Stephen Hawking got no love on this one.)
+
+These are generated from a list of adjectives and names of famous scientists and hackers. The combination of the names and adjectives is random, except for one case. Want to see what the exception is? Check it out in the [Docker source code](https://github.com/docker/docker/blob/master/pkg/namesgenerator/names-generator.go)!
