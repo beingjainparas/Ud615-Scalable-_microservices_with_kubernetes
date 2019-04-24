@@ -36,6 +36,8 @@ Below we have compiled a list of some of our favorites.
 * **Docker**
   * We use Docker to package, distribute, and run our application.
   * https://www.docker.com/
+  * Understand how Docker works and how you can use it - https://www.docker.com/what-docker
+  * Introduction to Docker - https://opensource.com/resources/what-docker
   
 * **Kubernetes**
   * Once we have an application, we use Kubernetes to handle the heavy lifting of managing, deploying, and scaling our application.
