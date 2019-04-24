@@ -38,6 +38,9 @@ Below we have compiled a list of some of our favorites.
   * https://www.docker.com/
   * Understand how Docker works and how you can use it - https://www.docker.com/what-docker
   * Introduction to Docker - https://opensource.com/resources/what-docker
+  * Here are two articles with a good write-ups about containers, if you want to go more in-depth about container technology:
+    * [Containers bring a skinny new world of virtualization to Linux](http://www.itworld.com/article/2698646/virtualization/containers-bring-a-skinny-new-world-of-virtualization-to-linux.html)
+    * [What are containers and why do you need them?](http://www.cio.com/article/2924995/enterprise-software/what-are-containers-and-why-do-you-need-them.html)
   
 * **Kubernetes**
   * Once we have an application, we use Kubernetes to handle the heavy lifting of managing, deploying, and scaling our application.
