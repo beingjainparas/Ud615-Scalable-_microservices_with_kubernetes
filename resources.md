@@ -52,3 +52,21 @@ Below we have compiled a list of some of our favorites.
 * **Google Container Engine (GKE)**
   * GKE is a hosted Kubernetes service
   * https://cloud.google.com/container-engine/
+  
+## Public vs Private Registries
+
+A lot of the power of container images stems from the ability to host and download them from cloud registries. This makes it easy to share containers without having to use complex pipelines for distributing them.
+
+When it comes to registries there are a few options. Below are a few different registries.
+
+### Docker Hub
+Docker Hub is the registry we’re using in this class. Go ahead and sign up for docker hub and create a repository so that you can follow along with the remaining lessons: https://hub.docker.com/
+
+### Quay
+Quay is another popular registry because of it’s rich automated workflow for building containers from github. https://quay.io/
+
+### Google Cloud Registry
+Finally, Google Cloud Registry (GCR) is a strong options for large enterprises. https://cloud.google.com/container-registry/docs/
+
+### Comparison Of 4 Registries
+A write up comparing some of the different registries: http://rancher.com/comparing-four-hosted-docker-registries/
