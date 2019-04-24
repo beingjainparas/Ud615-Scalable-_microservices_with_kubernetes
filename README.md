@@ -24,3 +24,8 @@ Prior to taking this course you should possess the following experience and skil
 
 ## Why Take This Course
 If you’re currently involved in infrastructure management — as a sysadmin or a developer — this course will enable you to build on that experience, and master the most cutting edge tools and practices in automation and distributed system management. For students who might be new to the field, this course is an excellent opportunity to familiarize yourself with microservices, containers, Docker, Kubernetes and deployment patterns; you’ll even run your first application on your very own Kubernetes cluster in the cloud!
+
+## Structure of this Repository
+* You can find all the resources used in tutorial over here: [/resources.md](/resources.md)
+* You can find all the commands used in tutorial over here: [/commands.md](/commands.md)
+* You can find all the code used in tutorial over here: [/ud615](/ud615)
