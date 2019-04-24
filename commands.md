@@ -111,3 +111,22 @@ curl -H "Authorization: Bearer $TOKEN" http://127.0.0.1:10080/secure
 ls vendor 
 cat vendor/vendor.json
 ```
+
+# Refactor to MSA
+## Shell 1 - build and run the hello service
+```bash
+go build -o ./bin/hello ./hello
+sudo ./bin/hello -http 0.0.0.0:10082 -health :10083
+```
+
+## Shell 2 - build and run the auth service
+```bash
+go build -o ./bin/auth ./auth
+sudo ./bin/auth -http :10090 -health :10091
+```
+
+## Shell 3 - interact with the auth and hello microservices
+```bash
+TOKEN=$(curl 127.0.0.1:10090/login -u user | jq -r '.token')
+curl -H "Authorization:  Bearer $TOKEN" http://127.0.0.1:10082/secure
+```
