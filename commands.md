@@ -487,3 +487,25 @@ kubectl get services
 ## Kubernetes cheat sheet
 We just went over a lot and we know you’re probably a little overwhelmed. Fear not! We’ll be going over each of these concepts, over the next two lessons. And you can always come back to this demo -- if you need to watch it again.
 To help out, here’s a Kubernetes command cheat sheet. http://kubernetes.io/docs/user-guide/kubectl-cheatsheet/
+
+# Creating Pods
+
+## Explore config file
+```bash
+cat pods/monolith.yaml
+```
+
+## Create the monolith pod
+```bash
+kubectl create -f pods/monolith.yaml
+```
+
+## Examine pods
+```bash
+kubectl get pods
+```
+It may take a few seconds before the monolith pod is up and running as the monolith container image needs to be pulled from the Docker Hub before we can run it.
+Use the kubectl describe command to get more information about the monolith pod.
+```bash
+kubectl describe pods monolith
+```
