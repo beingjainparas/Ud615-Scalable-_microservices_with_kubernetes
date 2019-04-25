@@ -461,3 +461,29 @@ Use the following command to create your cluster for use for the rest of this co
 ```bash
 gcloud container clusters create k0 
 ```
+
+# Kubernetes Intro Demo
+
+## Launch a single instance:
+```bash
+kubectl run nginx --image=nginx:1.10.0
+```
+
+## Get pods
+```bash
+kubectl get pods
+```
+
+## Expose nginx
+```bash
+kubectl expose deployment nginx --port 80 --type LoadBalancer
+```
+
+## List services
+```bash
+kubectl get services
+```
+
+## Kubernetes cheat sheet
+We just went over a lot and we know you’re probably a little overwhelmed. Fear not! We’ll be going over each of these concepts, over the next two lessons. And you can always come back to this demo -- if you need to watch it again.
+To help out, here’s a Kubernetes command cheat sheet. http://kubernetes.io/docs/user-guide/kubectl-cheatsheet/
