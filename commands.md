@@ -509,3 +509,48 @@ Use the kubectl describe command to get more information about the monolith pod.
 ```bash
 kubectl describe pods monolith
 ```
+
+# Interacting with Pods
+
+## Cloud shell 1: set up port-forwarding
+```bash
+kubectl port-forward monolith 10080:80
+```
+
+## Open new Cloud Shell session 2
+```bash
+curl http://127.0.0.1:10080
+curl http://127.0.0.1:10080/secure
+```
+
+## Cloud shell 2 - log in
+```bash
+curl -u user http://127.0.0.1:10080/login
+curl -H "Authorization: Bearer <token>" http://127.0.0.1:10080/secure
+```
+
+## View logs
+```bash
+kubectl logs monolith
+kubectl logs -f monolith
+```
+
+## In Cloud Shell 3
+```bash
+curl http://127.0.0.1:10080
+```
+
+## In Cloud Shell 2
+Exit log watching (Ctrl-C)
+You can use the kubectl exec command to run an interactive shell inside the monolith Pod. This can come in handy when you want to troubleshoot from within a container:
+```bash
+kubectl exec monolith --stdin --tty -c monolith /bin/sh
+```
+For example, once we have a shell into the monolith container we can test external connectivity using the ping command.
+```bash
+ping -c 3 google.com
+```
+When you’re done with the interactive shell be sure to logout.
+```bash
+exit
+```
