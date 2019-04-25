@@ -48,6 +48,9 @@ Below we have compiled a list of some of our favorites.
 * **Kubernetes**
   * Once we have an application, we use Kubernetes to handle the heavy lifting of managing, deploying, and scaling our application.
   * http://kubernetes.io/
+  * How does Kubernetes schedule Pods onto machines (called Nodes in Kubernetes)?
+  * Well, Kelsey says it’s a lot like tetris: https://www.youtube.com/watch?v=Po_MEdnUVDE
+  * Also, it’s probably a good idea to read up on Pods, my friend: http://kubernetes.io/docs/user-guide/pods/
   
 * **Google Container Engine (GKE)**
   * GKE is a hosted Kubernetes service
