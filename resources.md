@@ -54,6 +54,7 @@ Below we have compiled a list of some of our favorites.
   * User guide - http://kubernetes.io/docs/user-guide/liveness/
   * Config docs - http://kubernetes.io/docs/user-guide/configmap/
   * Secrets - http://kubernetes.io/docs/user-guide/secrets/
+  * Services overview - http://kubernetes.io/docs/user-guide/services/
   
 * **Google Container Engine (GKE)**
   * GKE is a hosted Kubernetes service
