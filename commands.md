@@ -439,3 +439,25 @@ sudo docker push udacity/example-monolith:1.0.0
 ```
 
 Repeat for all images you created - monolith, auth and hello!
+
+# Setting up Kubernetes for this course
+
+## Use project directory
+```bash
+cd $GOPATH/src/github.com/udacity/ud615/kubernetes
+```
+or if you are in the course repository:
+```bash
+cd kubernetes
+```
+**Note**: At any time you can clean up by running the cleanup.sh script
+
+## Provision a Kubernetes Cluster with GKE using gcloud
+To complete the work in this course you going to need some tools. Kubernetes can be configured with many options and add-ons, but can be time consuming to bootstrap from the ground up. In this section you will bootstrap Kubernetes using Google Container Engine (GKE).
+
+GKE is a hosted Kubernetes by Google. GKE clusters can be customized and supports different machine types, number of nodes, and network settings.
+
+Use the following command to create your cluster for use for the rest of this course.
+```bash
+gcloud container clusters create k0 
+```
