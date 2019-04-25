@@ -51,6 +51,7 @@ Below we have compiled a list of some of our favorites.
   * How does Kubernetes schedule Pods onto machines (called Nodes in Kubernetes)?
   * Well, Kelsey says it’s a lot like tetris: https://www.youtube.com/watch?v=Po_MEdnUVDE
   * Also, it’s probably a good idea to read up on Pods, my friend: http://kubernetes.io/docs/user-guide/pods/
+  * User guide - http://kubernetes.io/docs/user-guide/liveness/
   
 * **Google Container Engine (GKE)**
   * GKE is a hosted Kubernetes service
