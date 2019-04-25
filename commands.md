@@ -581,3 +581,17 @@ kubectl describe configmap nginx-proxy-conf
 
 ## TLS and SSL
 TLS and SSL can be confusing topics. Here’s a good primer for understanding the basics: https://en.wikipedia.org/wiki/Transport_Layer_Security
+
+# Accessing a Secure HTTPS Endpoint
+```bash
+cat pods/secure-monolith.yaml
+```
+
+## Create the secure-monolith Pod using kubectl.
+```bash
+kubectl create -f pods/secure-monolith.yaml
+kubectl get pods secure-monolith
+kubectl port-forward secure-monolith 10443:443
+curl --cacert tls/ca.pem https://127.0.0.1:10443
+kubectl logs -c nginx secure-monolith
+```
